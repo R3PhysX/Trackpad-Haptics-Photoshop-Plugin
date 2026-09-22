@@ -1,0 +1,46 @@
+{
+  "manifestVersion": 5,
+  "id": "com.techmeeva.trackpadhaptics.ps",
+  "name": "Trackpad Haptics",
+  "version": "1.0.0",
+  "main": "index.html",
+  "host": {
+    "app": "PS",
+    "minVersion": "23.0.0"
+  },
+  "entrypoints": [
+    {
+      "type": "panel",
+      "id": "trackpadHapticsPanel",
+      "label": {
+        "default": "Trackpad Haptics"
+      },
+      "minimumSize": {
+        "width": 240,
+        "height": 300
+      },
+      "preferredDockedSize": {
+        "width": 280,
+        "height": 400
+      }
+    }
+  ],
+  "requiredPermissions": {
+    "launchProcess": {
+      "schemes": [
+        "https",
+        "http",
+        "itms-apps",
+        "macappstore"
+      ]
+    },
+    "network": {
+      "domains": [
+        "ws://localhost:9006",
+        "http://localhost:9006",
+        "ws://127.0.0.1:9006",
+        "http://127.0.0.1:9006"
+      ]
+    }
+  }
+}

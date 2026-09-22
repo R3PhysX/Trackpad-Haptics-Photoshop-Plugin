@@ -1,0 +1,358 @@
+:root {
+  --panel-bg: #232323;
+  --pill-bg: #ededee;
+  --text-dark: #161616;
+  --text-light: #ffffff;
+  --text-muted: #555555;
+  --status-connected: #55b835;
+  --status-disconnected: #dc4b4b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--panel-bg);
+  color: var(--text-light);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.3;
+  user-select: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+/* Main Container */
+.panel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 14px 14px 14px;
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.app-icon-wrapper {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.app-icon-wrapper:hover {
+  transform: scale(1.04);
+  opacity: 0.95;
+}
+
+.app-icon-wrapper:active {
+  transform: scale(0.97);
+}
+
+.app-icon {
+  width: 66px;
+  height: 66px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+}
+
+.header-title-link {
+  text-decoration: none;
+  display: block;
+}
+
+.header-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: -0.2px;
+  text-align: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.header-title:hover {
+  opacity: 0.9;
+}
+
+/* Master Skeuomorphic Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.toggle-switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-track {
+  display: block;
+  width: 58px;
+  height: 24px;
+  border-radius: 12px;
+  position: relative;
+  background: url('assets/Toggle_BG.png') no-repeat center center;
+  background-size: 100% 100%;
+  transition: filter 0.18s ease;
+}
+
+.toggle-switch input:checked + .toggle-track {
+  background-image: url('assets/Toggle_Active_BG.png');
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -4px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: url('assets/Toggle_Knob.png') no-repeat center center;
+  background-size: contain;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.45));
+  transition: left 0.22s cubic-bezier(0.34, 1.25, 0.64, 1);
+  pointer-events: none;
+}
+
+.toggle-switch input:checked + .toggle-track .toggle-knob {
+  left: calc(100% - 30px);
+}
+
+.toggle-switch:hover .toggle-track {
+  filter: brightness(1.08);
+}
+
+/* Features Group & Pills */
+.features-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.feature-pill {
+  width: 100%;
+  height: 42px;
+  background-color: var(--pill-bg);
+  border-radius: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+  margin-bottom: 12px; /* Distinct vertical breathing room between pills */
+  transition: transform 0.12s ease, background-color 0.15s ease;
+  cursor: pointer;
+}
+
+.feature-pill:last-child {
+  margin-bottom: 0;
+}
+
+.feature-pill:active {
+  transform: scale(0.985);
+  background-color: #e5e5e6;
+}
+
+.feature-left {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.feature-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  margin-right: 8px;
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.34, 1.5, 0.64, 1);
+}
+
+.feature-icon.active {
+  transform: scale(1.22);
+}
+
+.feature-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Event Indicator Dot */
+.indicator-box {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 6px;
+}
+
+.indicator-bg {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
+.indicator-front {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  opacity: 0; /* Rest state: off/unlit */
+  transform: scale(0.65);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+  pointer-events: none;
+}
+
+/* Pulsing/Blinking when event is detected */
+.indicator-front.active {
+  opacity: 1; /* Crisp blinking acknowledge on event detection */
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 5px #76d31e);
+}
+
+/* Actions Row (Status & Reconnect) */
+.actions-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.status-box {
+  width: 48%;
+  height: 36px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('assets/Status_BG.png') no-repeat center center;
+  background-size: 100% 100%;
+  border-radius: 8px;
+  padding: 0 4px;
+  overflow: hidden;
+}
+
+#statusText {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.status-box.connected #statusText {
+  color: var(--status-connected);
+}
+
+.status-box.disconnected #statusText {
+  color: var(--status-disconnected);
+}
+
+/* Reconnect Button (div styled to avoid UXP button overrides) */
+.reconnect-button {
+  width: 48%;
+  height: 36px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #383838 url('assets/ReconnectButton.png') no-repeat center center;
+  background-size: 100% 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  padding: 0 6px;
+  transition: filter 0.15s ease, transform 0.1s ease;
+  user-select: none;
+}
+
+.reconnect-button:hover {
+  filter: brightness(1.12);
+}
+
+.reconnect-button:active {
+  transform: scale(0.97);
+  filter: brightness(0.95);
+}
+
+.reconnect-icon {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  margin-right: 5px;
+  flex-shrink: 0;
+  transition: transform 0.4s ease;
+}
+
+.reconnect-button:active .reconnect-icon {
+  transform: rotate(-180deg);
+}
+
+.reconnect-text {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-light);
+  white-space: nowrap;
+  letter-spacing: -0.1px;
+}
+
+/* Footer Info */
+.footer-info {
+  width: 100%;
+  text-align: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.1px;
+  margin-top: 4px;
+}

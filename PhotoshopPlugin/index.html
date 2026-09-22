@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Trackpad Haptics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="panel-container">
+    
+    <!-- Top Branding & Icon -->
+    <div class="header-section">
+      <a href="https://apps.apple.com/in/app/trackpad-haptics/id6780054447?mt=12" target="_blank" id="appIconLink" class="app-icon-wrapper" title="Trackpad Haptics on the Mac App Store">
+        <img src="assets/AppIcon.png" alt="Trackpad Haptics" class="app-icon">
+      </a>
+      <a href="https://apps.apple.com/in/app/trackpad-haptics/id6780054447?mt=12" target="_blank" class="header-title-link" id="appTitleLink" title="Trackpad Haptics on the Mac App Store">
+        <h1 class="header-title">Trackpad Haptics</h1>
+      </a>
+      
+      <!-- Skeuomorphic Master Switch -->
+      <label class="toggle-switch" for="masterToggle" title="Toggle Trackpad Haptics">
+        <input type="checkbox" id="masterToggle" checked>
+        <span class="toggle-track">
+          <span class="toggle-knob"></span>
+        </span>
+      </label>
+    </div>
+
+    <!-- Feature Pill Rows -->
+    <div class="features-group">
+      <!-- Pinch to zoom -->
+      <div class="feature-pill" id="zoomRow" title="Pinch to zoom haptic feedback">
+        <div class="feature-left">
+          <img src="assets/Magnifying_Glass_Icon.png" alt="" class="feature-icon" id="zoomIndicator">
+          <span class="feature-title">Pinch to zoom</span>
+        </div>
+        <div class="indicator-box">
+          <img src="assets/EventFire_BG.png" alt="" class="indicator-bg">
+          <img src="assets/EventFire_Front.png" alt="" class="indicator-front" id="zoomDot">
+        </div>
+      </div>
+
+      <!-- Layer & Guide Snap -->
+      <div class="feature-pill" id="snapRow" title="Click to test snap haptic">
+        <div class="feature-left">
+          <img src="assets/Layer_Snap_Icon.png" alt="" class="feature-icon" id="snapIndicator">
+          <span class="feature-title">Layer &amp; Guide Snap</span>
+        </div>
+        <div class="indicator-box">
+          <img src="assets/EventFire_BG.png" alt="" class="indicator-bg">
+          <img src="assets/EventFire_Front.png" alt="" class="indicator-front" id="snapDot">
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Actions Row -->
+    <div class="actions-row">
+      <!-- Connection Status Badge -->
+      <div id="statusBox" class="status-box disconnected" title="Server connection status">
+        <span id="statusText">Disconnected</span>
+      </div>
+
+      <!-- Reconnect Action (div avoids native UXP button override) -->
+      <div id="reconnectBtn" class="reconnect-button" role="button" tabindex="0" title="Reconnect to native haptics host">
+        <img src="assets/Reconnect_Icon.png" alt="" class="reconnect-icon">
+        <span class="reconnect-text">Reconnect</span>
+      </div>
+    </div>
+
+    <!-- Hidden element for event backward compatibility if queried -->
+    <div id="lastEvent" style="display: none;">Idle</div>
+    <div id="testBtn" style="display: none;"></div>
+
+    <!-- Footer host info -->
+    <div class="footer-info">
+      localhost:9006 Trackpad Haptics Native app
+    </div>
+
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
