@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="assets/AppIcon.png" alt="Trackpad Haptics Icon" width="120" height="120" />
+<img src="PhotoshopPlugin/assets/AppIcon.png" alt="Trackpad Haptics Icon" width="120" height="120" />
 
 # Trackpad Haptics for Photoshop
 **Tactile, physical feedback for Adobe Photoshop powered by macOS Force Touch Trackpads.**
