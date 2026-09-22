@@ -21,11 +21,17 @@
 
 ## 📖 Overview
 
-**Trackpad Haptics for Photoshop** connects Photoshop's canvas interactions and smart layout tools directly with your Mac's Trackpad Taptic Engine. 
+Modern macOS creative tools like **Figma** and Apple **Freeform** provide rich, standard trackpad haptic feedback whenever you zoom in/out or interact with canvas elements. However, Adobe Photoshop has never had native macOS trackpad haptic feedback.
 
-Whenever you zoom into artwork or snap layers to alignment guides and boundaries, your MacBook or Magic Trackpad produces tactile clicks and pulses under your fingers.
+**Trackpad Haptics for Photoshop** was created to bridge this gap, bringing tactile, physical clicks and pulses directly under your fingers when working on a MacBook or Magic Trackpad. Whether you're smoothly zooming into canvas artwork or snapping layers against smart guides and boundaries, your trackpad delivers responsive, real-time tactile confirmation.
 
-The plugin communicates with the **[Trackpad Haptics Native macOS App](https://apps.apple.com/in/app/trackpad-haptics/id6780054447?mt=12)** via a lightweight, ultra-low-latency local WebSocket bridge.
+The plugin communicates with the companion **[Trackpad Haptics Native macOS App](https://apps.apple.com/in/app/trackpad-haptics/id6780054447?mt=12)** via a lightweight, ultra-low-latency local WebSocket bridge.
+
+> [!WARNING]
+> ### ⚠️ Hardware & System Requirements
+> This plugin is designed **specifically for macOS users with Apple Force Touch Trackpads**.
+> - **Supported Devices:** MacBooks with built-in Force Touch trackpads (2015 or later) and external Apple Magic Trackpads (Trackpad 2 or USB-C).
+> - **Not Supported:** Windows PCs, Linux, non-Apple trackpads, and traditional computer mice. If you are on Windows or do not have an Apple Force Touch trackpad, this plugin will not produce any tactile feedback.
 
 ---
 
