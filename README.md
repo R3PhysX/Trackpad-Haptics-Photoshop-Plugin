@@ -78,25 +78,18 @@ The plugin communicates with the **[Trackpad Haptics Native macOS App](https://a
 
 You do **not** need the Adobe UXP Developer Tool. Choose any of these easy methods:
 
-### Option 1: 1-Click Auto Install *(Inside Companion App)*
-1. Open the **Trackpad Haptics** macOS app.
-2. Select the **Photoshop** tab in the sidebar.
-3. Click **"⚡ 1-Click Auto Install to Photoshop"**.
-4. Restart Adobe Photoshop. The panel will appear under **Plugins → Trackpad Haptics**.
-
----
-
-### Option 2: Double-Click the `.ccx` Package
-1. Double-click [`TrackpadHaptics.ccx`](TrackpadHaptics.ccx) in this directory (or click **"Open .ccx (CC)"** in the native app).
+### Option 1: Double-Click the `.ccx` Package
+1. Double-click [`TrackpadHaptics.ccx`](Trackpad%20Haptics/TrackpadHaptics.ccx) inside the `Trackpad Haptics/` directory.
 2. The **Adobe Creative Cloud Desktop** app will prompt you to install the plugin.
 3. Click **Install**.
 4. Restart Photoshop and open the panel under **Plugins → Trackpad Haptics**.
 
 ---
 
-### Option 3: Terminal Installer Script
+### Option 2: Terminal Installer Script
 Run the automated installer script from Terminal:
 ```bash
+cd "Trackpad Haptics"
 chmod +x install.sh
 ./install.sh
 ```
@@ -108,21 +101,21 @@ This script will:
 
 ---
 
-### Option 4: Manual Copy to Plug-ins Folder
-1. Copy this entire `PhotoshopPlugin` folder.
+### Option 3: Manual Copy to Plug-ins Folder
+1. Copy the `Trackpad Haptics` folder from this repository.
 2. Open Finder, press `Cmd + Shift + G`, and navigate to:
    ```
    /Applications/Adobe Photoshop 2025/Plug-ins/
    ```
-   *(Or your corresponding Photoshop version)*
-3. Paste the folder and rename it to `TrackpadHaptics`.
+   *(Or your corresponding Photoshop version, e.g. 2024, 2023, 2022)*
+3. Paste the folder.
 4. Restart Photoshop.
 
 ---
 
-### Option 5: Adobe UXP Developer Tool (For Developers)
+### Option 4: Adobe UXP Developer Tool (For Developers)
 1. Launch **Adobe UXP Developer Tool**.
-2. Click **Add Plugin** and select `manifest.json` from this folder.
+2. Click **Add Plugin** and select `Trackpad Haptics/manifest.json`.
 3. Click **Actions → Load** to run the plugin in your target Photoshop version.
 
 ---
@@ -144,23 +137,28 @@ This script will:
 ## 📁 Repository Structure
 
 ```
-PhotoshopPlugin/
+.
 ├── README.md               # Documentation & setup guide
 ├── LICENSE                 # MIT License
-├── manifest.json           # Adobe UXP v5 manifest
-├── index.html              # Plugin panel UI structure
-├── styles.css              # Native dark theme styling
-├── index.js                # Event listeners & WebSocket bridge
-├── install.sh              # 1-click terminal installation script
-├── TrackpadHaptics.ccx     # Pre-built Creative Cloud installer package
-└── assets/                 # Icons & skeuomorphic UI assets
-    ├── AppIcon.png
-    ├── EventFire_BG.png
-    ├── EventFire_Front.png
-    ├── Layer_Snap_Icon.png
-    ├── Magnifying_Glass_Icon.png
-    ├── Reconnect_Icon.png
-    └── ...
+└── Trackpad Haptics/       # Adobe Photoshop UXP Plugin
+    ├── manifest.json       # Adobe UXP v5 manifest
+    ├── index.html          # Plugin panel UI structure
+    ├── styles.css          # Native dark theme styling
+    ├── index.js            # Event listeners & WebSocket bridge
+    ├── install.sh          # Terminal installation script
+    ├── TrackpadHaptics.ccx # Pre-built Creative Cloud installer package
+    └── assets/             # Icons & skeuomorphic UI assets
+        ├── AppIcon.png
+        ├── EventFire_BG.png
+        ├── EventFire_Front.png
+        ├── Layer_Snap_Icon.png
+        ├── Magnifying_Glass_Icon.png
+        ├── ReconnectButton.png
+        ├── Reconnect_Icon.png
+        ├── Status_BG.png
+        ├── Toggle_Active_BG.png
+        ├── Toggle_BG.png
+        └── Toggle_Knob.png
 ```
 
 ---
